@@ -58,7 +58,6 @@ public class Quicksort {
     }
 
     public static void quickSort(int [] arr){
-
         int low = 0;
         int high= arr.length-1;
         quickSort(arr,low,high);
