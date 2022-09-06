@@ -1,4 +1,4 @@
-package com.example;
+package com.example.rank.algorithm;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
 import sun.dc.pr.PRError;

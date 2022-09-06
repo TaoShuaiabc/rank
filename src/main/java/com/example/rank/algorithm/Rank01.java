@@ -1,4 +1,4 @@
-package com.example;
+package com.example.rank.algorithm;
 /*
 *
 * 力扣整数反转--已通过

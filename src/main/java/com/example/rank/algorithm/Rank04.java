@@ -1,4 +1,4 @@
-package com.example;
+package com.example.rank.algorithm;
 
 
 import java.util.*;
