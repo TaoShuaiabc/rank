@@ -1,12 +1,9 @@
 package com.example.rank.word;
 
 
-import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
-import com.zhuozhengsoft.pageoffice.wordwriter.WordDocument;
-
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * @ClassName wordTeset
@@ -18,5 +15,19 @@ import javax.servlet.http.HttpServletRequestWrapper;
 public class WordTest {
 
 
+    public static void main(String[] args) throws IOException {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("granteeName", "test1");
+        params.put("companyName", "test1");
+        params.put("sealName", "test1");
+        params.put("granteeCidTypeName", "test1");
+        params.put("granteeCid", "test1");
+        params.put("grantorName", "test1");
+        params.put("grantTime", "test1");
+        File file = PdfUtil.genTempPdf(
+                "templates/sealManagerAuthFile-20220512.docx",
+                "sealManagerAuthUnsignFile", params);
+        System.out.println(file.getPath());
+    }
 
 }
