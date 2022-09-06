@@ -57,4 +57,6 @@ public class Rank04 {
         return sum;
 
 }
+
+
 }

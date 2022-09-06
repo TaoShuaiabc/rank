@@ -18,7 +18,6 @@ public class Rank01 {
     }
 
 
-
     public static int reverse(int r){
 
         int x = -2147483648;
