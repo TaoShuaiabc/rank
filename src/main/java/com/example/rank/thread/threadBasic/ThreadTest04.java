@@ -1,4 +1,4 @@
-package com.example.rank.thread;
+package com.example.rank.thread.threadBasic;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
