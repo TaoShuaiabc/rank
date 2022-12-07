@@ -30,6 +30,9 @@ public class ThreadTest03 {
 
 }
 
+
+
+
 class ThreadTest extends Thread{
 
     @Override
