@@ -1,3 +1,4 @@
+/*
 package com.example.rank.word;
 
 import com.deepoove.poi.XWPFTemplate;
@@ -6,7 +7,6 @@ import com.lowagie.text.Rectangle;
 import com.lowagie.text.pdf.*;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
-
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -20,15 +20,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+*/
 /**
  * @author linsonxie
  * @since 2020-07-23
- */
+ *//*
+
 public class PdfUtil {
 
-    /**
+    */
+/**
      * 填充word模板并生成PDF
-     */
+     *//*
+
     public static String genPdfFromWordModel(String wordModelPath, String targetPathPre, Map<String, String> params) throws IOException {
         String uuid = UUID.randomUUID().toString();
         File dirFile = new File(targetPathPre);
@@ -51,25 +55,29 @@ public class PdfUtil {
         return pdfName;
     }
 
-    /**
+    */
+/**
      * poi-tl替换word模板
      *
      * @param wordModelPath
      * @param targetPath
      * @param params
      * @throws IOException
-     */
+     *//*
+
     public static void genWord(String wordModelPath, String targetPath, Map<String, String> params) throws IOException {
         XWPFTemplate template = XWPFTemplate.compile(wordModelPath).render(params);
         template.writeToFile(targetPath);
     }
 
-    /**
+    */
+/**
      * 生成PDF临时文件
      * wordModelPath 模板路径
      * pdfNamePrefix 临时文件前缀
      * params 填充模板的参数
-     */
+     *//*
+
     public static File genTempPdf(String wordModelPath, String pdfNamePrefix, Map<String, String> params) throws IOException {
         Resource resource = new ClassPathResource(wordModelPath);
         try(InputStream inputStream = resource.getInputStream()){
@@ -90,9 +98,11 @@ public class PdfUtil {
         }
     }
 
-    /**
-    * 通过模板生成pdf字节流
     */
+/**
+    * 通过模板生成pdf字节流
+    *//*
+
     public static ByteArrayOutputStream genPdfOutputStream(String wordModelPath, Map<String, String> params) throws IOException {
         Resource resource = new ClassPathResource(wordModelPath);
         try(InputStream inputStream = resource.getInputStream()){
@@ -108,35 +118,41 @@ public class PdfUtil {
         }
     }
 
-    /**
+    */
+/**
      * 将word文档， 转换成pdf, 中间替换掉变量
      *
      * @param source 源为word文档， 必须为docx文档
      * @param target 目标输出
      * @throws Exception
-     */
+     *//*
+
     private static void wordConverterToPdf(InputStream source,
                                            OutputStream target) throws Exception {
         wordConverterToPdf(source, target, null);
     }
 
-    /**
+    */
+/**
      * 将word文档， 转换成pdf, 中间替换掉变量
      *
      * @param source  源为word文档， 必须为docx文档
      * @param target  目标输出
      * @param options PdfOptions.create().fontEncoding( "windows-1250" ) 或者其他
      * @throws Exception
-     */
+     *//*
+
     private static void wordConverterToPdf(InputStream source, OutputStream target,
                                            PdfOptions options) throws IOException {
         XWPFDocument doc = new XWPFDocument(source);
         PdfConverter.getInstance().convert(doc, target, options);
     }
 
-    /**
+    */
+/**
      * 替换段落中内容
-     */
+     *//*
+
     private static void paragraphReplace(List<XWPFParagraph> paragraphs, Map<String, String> params) {
         if (MapUtils.isNotEmpty(params)) {
             for (XWPFParagraph p : paragraphs) {
@@ -151,7 +167,8 @@ public class PdfUtil {
     }
 
 
-    /**
+    */
+/**
      * 给PDF添加签名域
      *
      * @param sourcePath 目前PDF路径
@@ -163,7 +180,8 @@ public class PdfUtil {
      * @param height     签名域：高
      * @throws IOException
      * @throws DocumentException
-     */
+     *//*
+
     public static String genSignArea(String sourcePath, String targetPathPre, String signName, int pageNo, int x, int y, int width, int height) throws IOException, DocumentException {
         String uuid = UUID.randomUUID().toString();
         File dirFile = new File(targetPathPre);
@@ -194,3 +212,4 @@ public class PdfUtil {
         return fileName;
     }
 }
+*/
