@@ -1,9 +1,9 @@
 package com.shuaitao.rabbitmq.consumer;
 
-import com.rabbitmq.client.*;
-
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
+import com.rabbitmq.client.CancelCallback;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.DeliverCallback;
+import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
 
 /**
  * @ClassName Consumer
@@ -17,20 +17,13 @@ public class Consumer {
     private final static String QUEUE_NAME = "hello";
 
 
-    public static void main(String[] args) throws IOException, TimeoutException {
+    public static void main(String[] args) throws Exception {
         new Consumer().ConsumerMassage();
     }
 
-    public void ConsumerMassage() throws IOException, TimeoutException {
+    public void ConsumerMassage() throws Exception {
 
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-
-        connectionFactory.setHost("120.79.46.139");
-        connectionFactory.setUsername("admin");
-        connectionFactory.setPassword("admin");
-
-        Connection connection = connectionFactory.newConnection();
-        Channel channel = connection.createChannel();
+        Channel channel = RabbitMQUtils.getChannel();
 
         //接收消息
         DeliverCallback deliverCallback = (consumerTag,message)->{

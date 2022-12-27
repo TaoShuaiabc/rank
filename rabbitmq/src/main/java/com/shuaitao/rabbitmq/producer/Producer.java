@@ -1,11 +1,7 @@
 package com.shuaitao.rabbitmq.producer;
 
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
+import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
 
 /**
  * @ClassName Producer
@@ -20,7 +16,7 @@ public class Producer {
     private final static String QUEUE_NAME = "hello";
 
 
-    public static void main(String[] args) throws IOException, TimeoutException {
+    public static void main(String[] args) throws Exception {
 
         new Producer().producerMassage();
     }
@@ -28,14 +24,9 @@ public class Producer {
     /**
      *  生产消息方法
      */
-    public void producerMassage() throws IOException, TimeoutException {
-        ConnectionFactory connectionFactory = new ConnectionFactory();
+    public void producerMassage() throws Exception {
 
-        connectionFactory.setHost("120.79.46.139");
-        connectionFactory.setUsername("admin");
-        connectionFactory.setPassword("admin");
-        Connection connection = connectionFactory.newConnection();
-        Channel channel = connection.createChannel();
+        Channel channel = RabbitMQUtils.getChannel();
         /**
          * 生成一个队列
          * 1.队列名称
