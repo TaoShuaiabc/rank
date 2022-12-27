@@ -2,6 +2,7 @@ package com.shuaitao.rabbitmq.producer;
 
 import com.rabbitmq.client.Channel;
 import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
+import com.shuaitao.rabbitmq.constant.QueueConstant;
 
 /**
  * @ClassName Producer
@@ -11,9 +12,6 @@ import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
  * @Version 1.0
  */
 public class Producer {
-
-
-    private final static String QUEUE_NAME = "hello";
 
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +33,7 @@ public class Producer {
          * 4.是否自动删除 最后一个消费者端开连接以后 该队列是否自动删除 true 自动删除
          * 5.其他参数
          */
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        channel.queueDeclare(QueueConstant.QUEUE_NAME,false,false,false,null);
         String message="hello world";
 
         /**
@@ -45,7 +43,7 @@ public class Producer {
          * 3.其他的参数信息
          * 4.发送消息的消息体
          */
-        channel.basicPublish("",QUEUE_NAME,null,message.getBytes());
+        channel.basicPublish("",QueueConstant.QUEUE_NAME,null,message.getBytes());
         System.out.println("消息发送完毕");
     }
 

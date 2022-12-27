@@ -4,6 +4,7 @@ import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
+import com.shuaitao.rabbitmq.constant.QueueConstant;
 
 /**
  * @ClassName Consumer
@@ -13,8 +14,6 @@ import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
  * @Version 1.0
  */
 public class Consumer {
-
-    private final static String QUEUE_NAME = "hello";
 
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +34,7 @@ public class Consumer {
             System.out.println("取消消费");
         };
 
-        channel.basicConsume(QUEUE_NAME,true,deliverCallback,cancelCallback);
+        channel.basicConsume(QueueConstant.QUEUE_NAME,true,deliverCallback,cancelCallback);
     }
 
 
