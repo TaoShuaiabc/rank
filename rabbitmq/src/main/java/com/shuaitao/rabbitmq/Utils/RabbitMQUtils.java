@@ -23,7 +23,6 @@ public class RabbitMQUtils {
         connectionFactory.setPassword("admin");
         Connection connection = connectionFactory.newConnection();
         Channel channel = connection.createChannel();
-
         return channel;
     }
 }
