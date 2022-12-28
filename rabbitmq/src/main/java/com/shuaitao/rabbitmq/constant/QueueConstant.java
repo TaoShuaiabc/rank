@@ -9,5 +9,5 @@ package com.shuaitao.rabbitmq.constant;
  */
 public class QueueConstant {
 
-    public final static String QUEUE_NAME = "hello";
+    public final static String QUEUE_NAME = "hello1";
 }
