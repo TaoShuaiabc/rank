@@ -23,7 +23,9 @@ public class AutoRespConsumer02 {
 
         Channel channel = RabbitMQUtils.getChannel();
         //设置不公平分发
-        channel.basicQos(1);
+        //channel.basicQos(1);
+        //设置预取值
+        channel.basicQos(5);
         //接收消息
         DeliverCallback deliverCallback = (consumerTag, message)->{
 

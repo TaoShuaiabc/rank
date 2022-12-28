@@ -17,7 +17,17 @@ public class Consumer {
 
 
     public static void main(String[] args) throws Exception {
-        new Consumer().ConsumerMassage();
+        for (int i =0;i<=3;i++){
+            new Thread(()->{
+                try {
+                    new Consumer().ConsumerMassage();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+
+
     }
 
     public void ConsumerMassage() throws Exception {
@@ -26,7 +36,7 @@ public class Consumer {
 
         //接收消息
         DeliverCallback deliverCallback = (consumerTag,message)->{
-            System.out.println(new String(message.getBody()));
+            System.out.println(Thread.currentThread().getName()+"==="+new String(message.getBody()));
         };
 
         //消息取消消费的回调

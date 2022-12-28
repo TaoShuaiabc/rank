@@ -24,9 +24,16 @@ public class AutoRespConsumer01 {
 
         Channel channel = RabbitMQUtils.getChannel();
         //设置不公平分发
-        channel.basicQos(1);
+        //channel.basicQos(1);
+        //设置预取值
+        channel.basicQos(2);
         //接收消息
         DeliverCallback deliverCallback = (consumerTag, message)->{
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println(new String(message.getBody()));
             //手动应答方法，param1是消息标记，param2是选择是否批量应答（即是否批量应答当前信道中的所有消息，包括还未消费的消息）
             channel.basicAck(message.getEnvelope().getDeliveryTag(),false);
