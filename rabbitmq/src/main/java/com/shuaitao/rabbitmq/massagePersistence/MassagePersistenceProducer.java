@@ -5,6 +5,8 @@ import com.rabbitmq.client.MessageProperties;
 import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
 import com.shuaitao.rabbitmq.constant.QueueConstant;
 
+import java.util.Scanner;
+
 /**
  * @ClassName MassagePersistenceProducer
  * @Description  消息持久化生产者
@@ -22,10 +24,15 @@ public class MassagePersistenceProducer {
         //durable设置为true,代表该队列持久化，但是如果已经存在一个非持久化的同名队列，会报错
         boolean durable = true;
         channel.queueDeclare(QueueConstant.QUEUE_NAME,durable,false,false,null);
-        String message="hello world";
 
-        //发送消息，MessageProperties.PERSISTENT_TEXT_PLAIN代表设置消息持久化，但这是简单的持久化，想要强有力的持久化参考后面的发布确认章节
-        channel.basicPublish("",QueueConstant.QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN,message.getBytes());
+        //发送消息，MessageProperties.PERSISTENT_TEXT_PLAIN代表设置消息持久化（要求保存到磁盘），但这是简单的持久化，想要强有力的持久化参考后面的发布确认章节
+
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            String message = scanner.next();
+            channel.basicPublish("",QueueConstant.QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN,message.getBytes());
+            System.out.println("消息发送完成:" + message);
+        }
 
     }
 
