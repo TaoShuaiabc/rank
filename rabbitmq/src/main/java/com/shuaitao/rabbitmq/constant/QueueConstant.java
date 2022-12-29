@@ -10,4 +10,6 @@ package com.shuaitao.rabbitmq.constant;
 public class QueueConstant {
 
     public final static String QUEUE_NAME = "hello1";
+
+    public final static Integer MESSAGE_COUNT = 100;
 }
