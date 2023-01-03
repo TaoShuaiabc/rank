@@ -23,5 +23,22 @@ public class IntegerTest01 {
 
     public static void main(String[] args) {
 
+
+        Integer a = 127;
+        Integer b = 127;
+        Integer c = 128;
+        Integer d = 128;
+
+        String s ="陶帅";
+
+        System.out.println(s.hashCode());
+
+        /**
+         * 为什么会出现以下情况？
+         *   因为jvm中保存了一个-128到127的整数型常量池。所以由于==比较的是内存地址，127是直接从常量池中取的，
+         *   内存地址相同，所以是true，但是128是存在两个不同的对象中，对象的内存地址不同，所以是false
+         */
+        System.out.println(a==b); //true
+        System.out.println(c==d); //false
     }
 }
