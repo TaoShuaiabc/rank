@@ -12,4 +12,6 @@ public class QueueConstant {
     public final static String QUEUE_NAME = "hello";
 
     public final static Integer MESSAGE_COUNT = 1000;
+
+    public static final String EXCHANGE_NAME = "logs";
 }
