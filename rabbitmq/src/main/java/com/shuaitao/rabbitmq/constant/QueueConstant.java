@@ -14,4 +14,6 @@ public class QueueConstant {
     public final static Integer MESSAGE_COUNT = 1000;
 
     public static final String EXCHANGE_NAME = "logs";
+
+    public static final String EXCHANGE_DIRECT_NAME = "direct_logs";
 }

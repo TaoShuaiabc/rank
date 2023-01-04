@@ -1,4 +1,4 @@
-package com.shuaitao.rabbitmq.exchange;
+package com.shuaitao.rabbitmq.exchange.fanout;
 
 import com.rabbitmq.client.Channel;
 import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
