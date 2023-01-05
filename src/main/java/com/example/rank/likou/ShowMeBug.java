@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @ClassName ShowMeBug
- * @Description
+ * @Description  输入一个二维数组[{1,2,3},{4,5,6},{7,8,9}],输出一个二维数组[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
  * @Author ts
  * @Date 2022/12/29 17:35
  * @Version 1.0

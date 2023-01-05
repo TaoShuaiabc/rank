@@ -25,4 +25,5 @@ public class RabbitMQUtils {
         Channel channel = connection.createChannel();
         return channel;
     }
+
 }
