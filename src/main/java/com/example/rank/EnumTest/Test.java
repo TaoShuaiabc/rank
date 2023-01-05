@@ -10,6 +10,6 @@ package com.example.rank.EnumTest;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(TestEnum.SUCCEED.name);
+        System.out.println(TestEnum.SUCCEED.code);
     }
 }

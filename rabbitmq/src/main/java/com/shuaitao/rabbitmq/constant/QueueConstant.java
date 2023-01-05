@@ -16,4 +16,6 @@ public class QueueConstant {
     public static final String EXCHANGE_NAME = "logs";
 
     public static final String EXCHANGE_DIRECT_NAME = "direct_logs";
+
+    public static final String EXCHANGE_TOPIC_NAME = "topic_logs";
 }
