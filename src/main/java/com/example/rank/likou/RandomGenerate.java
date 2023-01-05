@@ -21,14 +21,11 @@ public class RandomGenerate {
     public int[] generateRandom(){
 
         int[] arr = new int[5];
-
         for (int i =0;i<arr.length;i++){
             arr[i] = -1;
         }
-
         //生成随机数类
         Random random = new Random();
-
         int index = 0;
         while (index<5){
             int number = random.nextInt(100);
