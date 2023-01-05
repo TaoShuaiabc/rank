@@ -13,11 +13,11 @@ import com.rabbitmq.client.ConnectionFactory;
  */
 public class RabbitMQUtils {
 
-
-
+    /**
+     * 获取RabbitMQ的管道
+     */
     public static Channel getChannel() throws Exception {
         ConnectionFactory connectionFactory = new ConnectionFactory();
-
         connectionFactory.setHost("120.79.46.139");
         connectionFactory.setUsername("admin");
         connectionFactory.setPassword("admin");
