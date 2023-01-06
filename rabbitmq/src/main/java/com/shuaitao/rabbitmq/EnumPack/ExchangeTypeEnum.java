@@ -2,7 +2,7 @@ package com.shuaitao.rabbitmq.EnumPack;
 
 
 /** 交换机类型枚举
- * @author ASUS
+ * @author ts
  */
 
 public enum ExchangeTypeEnum {
@@ -10,7 +10,7 @@ public enum ExchangeTypeEnum {
 
     DIRECT("direct"),FANOUT("fanout"),TOPIC("topic");
 
-    String code;
+    private final String code;
 
     ExchangeTypeEnum(String code) {
         this.code = code;
@@ -18,9 +18,5 @@ public enum ExchangeTypeEnum {
 
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 }
