@@ -48,6 +48,8 @@ public class DeadQueueConsumer01 {
         deadQueueMessageMap.put("x-dead-letter-exchange",EXCHANGE_DEAD);
         //正常队列设置死信 routing-key 参数 key 是固定值
         deadQueueMessageMap.put("x-dead-letter-routing-key",deadRoutingKey);
+        //设置正常队列的最大长度（这里是用于测试死信队列）
+        //deadQueueMessageMap.put("x-max-length",6);
 
         //设置普通队列
         channel.queueDeclare(normalQueueName,false,false,false,deadQueueMessageMap);

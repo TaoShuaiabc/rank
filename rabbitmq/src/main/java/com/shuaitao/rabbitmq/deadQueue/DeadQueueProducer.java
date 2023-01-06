@@ -1,6 +1,5 @@
 package com.shuaitao.rabbitmq.deadQueue;
 
-import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.shuaitao.rabbitmq.Utils.RabbitMQUtils;
 
@@ -21,10 +20,11 @@ public class DeadQueueProducer {
         Channel channel = RabbitMQUtils.getChannel();
         int num = 10;
         //设置消息过期时间（过期后会放进死信队列）
-        AMQP.BasicProperties build = new AMQP.BasicProperties().builder().expiration("10000").build();
+        /*AMQP.BasicProperties build = new AMQP.BasicProperties().builder().expiration("10000").build();*/
         for (int i=0;i<num;i++){
             System.out.println("发送消息："+i);
-            channel.basicPublish(EXCHANGE_NORMAL,normalRoutingKey,build,("info"+i).getBytes());
+            //channel.basicPublish(EXCHANGE_NORMAL,normalRoutingKey,build,("info"+i).getBytes());
+            channel.basicPublish(EXCHANGE_NORMAL,normalRoutingKey,null,("info"+i).getBytes());
         }
 
     }
