@@ -61,5 +61,20 @@ public class DeadQueueConsumer01 {
             System.out.println(new String(message.getBody()));
         }, consumerTag -> {});
 
+      /*  //以下为测试拒绝的消息进入死信队列 param2设置为false,标识手动应答
+        channel.basicConsume(normalQueueName, false, (consumerTag, message) -> {
+            String s = new String(message.getBody(), "UTF-8");
+            if ("info4".equals(s)){
+                //返回param2设置未false则表示拒绝此消息
+                channel.basicReject(message.getEnvelope().getDeliveryTag(),false);
+            }else {
+                System.out.println("绑定key:"+message.getEnvelope().getRoutingKey());
+                System.out.println(new String(message.getBody()));
+                //手动确认,param2设置为false,标识不批量应答,只确定应答当前消息
+                channel.basicAck(message.getEnvelope().getDeliveryTag(),false);
+            }
+
+        }, consumerTag -> {});*/
+
     }
 }
