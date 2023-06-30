@@ -9,9 +9,6 @@ package com.example.rank.synchronizedtest;
  */
 public class test {
 
-
-
-
     public void test01(){
 
         synchronized(this){
