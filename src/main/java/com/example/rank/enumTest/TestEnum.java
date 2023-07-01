@@ -1,4 +1,4 @@
-package com.example.rank.EnumTest;
+package com.example.rank.enumTest;
 
 /**
  * @author ASUS
