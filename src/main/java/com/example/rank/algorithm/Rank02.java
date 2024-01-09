@@ -63,8 +63,6 @@ public class Rank02 {
     /* 标准答案
 
 
-
-
  class Solution {
     public int pivotIndex(int[] nums) {
         int total = Arrays.stream(nums).sum();
