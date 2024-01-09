@@ -1,7 +1,8 @@
 package com.example.rank.algorithm;
 
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName Rank04  罗马数字转整数
