@@ -1,4 +1,5 @@
 spring:
   application:
     name: springboot-leaf
-
+server:
+  port: 8088
