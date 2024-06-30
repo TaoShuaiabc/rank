@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  data:
+    redis:
+      database: 0
+      connect-timeout: 3000
+      sentinel:
+        master: mymaster
+        nodes: 192.168.219.88:26379
+      lettuce:
+        pool:
+          max-active: 100
+          max-idle: 50
+          min-idle: 10
+          max-wait: 1000
