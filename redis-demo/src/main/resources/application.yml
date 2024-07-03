@@ -1,16 +1,27 @@
 server:
-  port: 8080
+  port: 8081
+
 spring:
   data:
     redis:
-      database: 0
-      connect-timeout: 3000
       sentinel:
         master: mymaster
-        nodes: 192.168.219.88:26379
+        nodes: 192.168.219.88:26379,192.168.219.88:26380,192.168.219.88:26381
       lettuce:
         pool:
           max-active: 100
           max-idle: 50
           min-idle: 10
           max-wait: 1000
+      timeout: 3000
+      database: 0
+
+
+
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+         redis: DEBUG
