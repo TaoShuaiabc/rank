@@ -19,9 +19,6 @@ public class JedisSentinelTestController {
 
 
     @Resource
-    private RedisTemplate redisTemplate;
-
-    @Resource
     private Redisson redisson;
 
 
@@ -54,15 +51,20 @@ public class JedisSentinelTestController {
     public String key(){
         RLock lock = redisson.getLock("1011");
         lock.lock();
-        int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
-        if (stock>0){
-            int realStock = stock - 1 ;
-            stringRedisTemplate.opsForValue().set("stock",realStock+"");
-            System.out.println(realStock);
-        }else {
-            System.out.println("扣减库存失败");
+        //使用手动解锁一定要记得使用try
+        try{
+            int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
+            if (stock>0){
+                int realStock = stock - 1 ;
+                stringRedisTemplate.opsForValue().set("stock",realStock+"");
+                System.out.println(realStock);
+            }else {
+                System.out.println("扣减库存失败");
+            }
+        }finally {
+            lock.unlock();
         }
-        lock.unlock();
+
         return "200";
     }
 
