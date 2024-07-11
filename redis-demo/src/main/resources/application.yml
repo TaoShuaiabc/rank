@@ -1,12 +1,41 @@
 server:
   port: 8081
+#redis哨兵配置
+#spring:
+#  data:
+#    redis:
+#      sentinel:
+#        master: mymaster
+#        nodes: 192.168.219.88:26379,192.168.219.88:26380,192.168.219.88:26381
+#      lettuce:
+#        pool:
+#          max-active: 100
+#          max-idle: 50
+#          min-idle: 10
+#          max-wait: 1000
+#      timeout: 3000
+#      database: 0
 
+#redis集群配置
+#spring:
+#  data:
+#    redis:
+#      cluster:
+#        nodes: 192.168.219.88:8001,192.168.219.89:8002,192.168.219.90:8003,192.168.219.88:8004,192.168.219.89:8005,192.168.219.90:8006
+#      lettuce:
+#        pool:
+#          max-active: 100
+#          max-idle: 50
+#          min-idle: 10
+#          max-wait: 1000
+#      timeout: 3000
+#      database: 0
+#      password: root
+
+#redis单机配置
 spring:
   data:
     redis:
-      sentinel:
-        master: mymaster
-        nodes: 192.168.219.88:26379,192.168.219.88:26380,192.168.219.88:26381
       lettuce:
         pool:
           max-active: 100
@@ -15,13 +44,9 @@ spring:
           max-wait: 1000
       timeout: 3000
       database: 0
+      host: 192.168.219.88
+      port: 6379
 
 
 
 
-logging:
-  level:
-    org:
-      springframework:
-        data:
-         redis: DEBUG
