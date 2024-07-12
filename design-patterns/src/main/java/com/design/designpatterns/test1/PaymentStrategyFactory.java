@@ -17,6 +17,7 @@ public class PaymentStrategyFactory implements ApplicationContextAware {
             case 3 -> applicationContext.getBean(UnionPay.class);
             default -> throw new IllegalArgumentException("无效的支付类型");
         };
+
     }
 
     @Override

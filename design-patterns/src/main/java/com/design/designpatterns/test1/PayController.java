@@ -17,7 +17,7 @@ public class PayController {
     @GetMapping("/pay")
     private void pay(){
         int payType = 1;
-        double amount = 0;
+        double amount = 10;
         AbstractPaymentStrategy abstractPaymentStrategy = paymentStrategyFactory.getPaymentStrategy(payType);
         abstractPaymentStrategy.commonPay(amount);
     }
