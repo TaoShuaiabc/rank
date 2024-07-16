@@ -1,4 +1,4 @@
-package com.redis.demo;
+package com.redis.demo.test1;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
@@ -12,7 +12,7 @@ public class JedisSentinelTest {
 
     public static void main(String[] args) {
 
-        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+       JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 
         jedisPoolConfig.setMaxTotal(20);
 

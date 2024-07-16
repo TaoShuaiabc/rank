@@ -1,10 +1,9 @@
-package com.redis.demo;
+package com.redis.demo.test1;
 
 
 import jakarta.annotation.Resource;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JedisSentinelTestController {
 
-    @Resource
+  /*  @Resource
     private StringRedisTemplate stringRedisTemplate;
 
 
@@ -66,7 +65,7 @@ public class JedisSentinelTestController {
         }
 
         return "200";
-    }
+    }*/
 
 
 }

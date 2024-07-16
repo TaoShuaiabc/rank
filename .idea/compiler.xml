@@ -5,12 +5,14 @@
       <directory url="file://$PROJECT_DIR$/algorithm/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot3-graalVM" />
         <module name="springboot3" />
+        <module name="redis-multi-cache" />
         <module name="springboot-leaf" />
         <module name="redis-demo" />
         <module name="rabbitmq" />
@@ -25,6 +27,7 @@
       <module name="design-patterns" options="-parameters" />
       <module name="rabbitmq" options="-parameters" />
       <module name="redis-demo" options="-parameters" />
+      <module name="redis-multi-cache" options="-parameters" />
       <module name="springboot-leaf" options="-parameters" />
       <module name="springboot3" options="-parameters" />
       <module name="springboot3-graalVM" options="-parameters" />
