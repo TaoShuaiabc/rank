@@ -100,6 +100,7 @@ public class ProductService {
                     redisUtil.set(productCatchKey, JSON.toJSONString(product), genProductCacheTimeout(), TimeUnit.SECONDS);
                 } else {
                     //防止缓存穿透,当查询数据库不存在的商品时，往缓存存入一个空值，防止请求一直打到数据库。另外一定要设置过期时间，防止缓存中出现大量空值
+                    //当然最好还是使用布隆过滤器
                     redisUtil.set(productCatchKey, EMPTY_CATCH, genEmptyCacheTimeout(), TimeUnit.SECONDS);
                 }
             }finally {
