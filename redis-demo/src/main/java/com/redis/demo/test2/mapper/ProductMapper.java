@@ -6,4 +6,8 @@ public interface ProductMapper {
 
 
     Product getProduct(Long id);
+
+    Product update(Product product);
+
+    Product set(Product product);
 }

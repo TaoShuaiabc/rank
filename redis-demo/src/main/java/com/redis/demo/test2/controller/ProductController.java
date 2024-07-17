@@ -17,16 +17,16 @@ public class ProductController {
 
     @GetMapping("set")
     private void set(){
-        productService.set();
+        productService.set(new Product());
     }
 
     @GetMapping("get")
     private Product get(){
-       return productService.get();
+       return productService.get(1L);
     }
 
     @GetMapping("update")
     private void update(){
-        productService.update();
+        productService.update(new Product());
     }
 }

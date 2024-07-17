@@ -17,12 +17,12 @@ public class RedisDemoApplication {
         SpringApplication.run(RedisDemoApplication.class, args);
     }
 
-  /*  @Bean
+    @Bean
     public Redisson redisson(){
 
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://192.168.219.88:6379").setDatabase(0);
+        config.useSingleServer().setAddress("redis://192.168.219.88:8001").setDatabase(0);
         return (Redisson) Redisson.create(config);
     }
-*/
+
 }
