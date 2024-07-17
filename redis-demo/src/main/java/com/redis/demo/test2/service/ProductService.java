@@ -81,7 +81,7 @@ public class ProductService {
         // 可以使用这个，让锁一秒钟后失效，这样就可以让串行转并发了，当然要考虑业务是否能在一秒钟之内处理完毕，如果没有处理完毕，则会有并发问题
         lock.lock();
         try {
-            //查询缓存 双重检测机制 主要用于已经在排队中的线程提升效率，
+            //查询缓存 双重检测机制,也叫DCL(double check lock) 主要用于已经在排队中的线程提升效率，
             // 例如线程一查完数据库，并设置缓存，然后解锁，此时已经在排队的线程二拿到锁，发现缓存中已存在，则直接返回。
             product = getProductFromCache(productCatchKey, product);
             if (product != null) {
