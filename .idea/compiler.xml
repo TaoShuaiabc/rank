@@ -11,6 +11,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot3-graalVM" />
+        <module name="thread-demo" />
         <module name="springboot3" />
         <module name="redis-multi-cache" />
         <module name="springboot-leaf" />
@@ -31,6 +32,7 @@
       <module name="springboot-leaf" options="-parameters" />
       <module name="springboot3" options="-parameters" />
       <module name="springboot3-graalVM" options="-parameters" />
+      <module name="thread-demo" options="-parameters" />
     </option>
   </component>
 </project>
