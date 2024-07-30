@@ -8,11 +8,11 @@
         <version>3.3.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.design</groupId>
-    <artifactId>thread-demo</artifactId>
+    <groupId>org.kafka.www</groupId>
+    <artifactId>kafka-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>thread-demo</name>
-    <description>thread-demo</description>
+    <name>kafka-demo</name>
+    <description>kafka-demo</description>
     <url/>
     <licenses>
         <license/>
@@ -39,16 +39,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-            <version>0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
