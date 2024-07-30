@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/design-patterns/pom.xml" />
         <option value="$PROJECT_DIR$/redis-multi-cache/pom.xml" />
         <option value="$PROJECT_DIR$/thread-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka-demo/pom.xml" />
       </list>
     </option>
   </component>
