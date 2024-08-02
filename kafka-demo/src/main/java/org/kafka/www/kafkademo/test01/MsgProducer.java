@@ -12,10 +12,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 生产者
+ */
 @Slf4j
 public class MsgProducer {
 
-    private final static String TOPIC_NAME = "test999";
+    private final static String TOPIC_NAME = "test111";
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
@@ -49,7 +52,7 @@ public class MsgProducer {
         final CountDownLatch countDownLatch = new CountDownLatch(masNum);
         for (int i = 0; i <=masNum; i++) {
 
-            Order order = new Order(34534, 345 + 100, 1000.00);
+            Order order = new Order(i, i + 100, 1000.00);
             //指定发送分区
             /*ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(TOPIC_NAME,
                     0,String.valueOf(order.getId()), JSON.toJSONString(order));*/
