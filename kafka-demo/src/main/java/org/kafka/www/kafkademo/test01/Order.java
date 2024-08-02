@@ -12,7 +12,10 @@ public class Order {
     private int userId;
     private Double count;
 
-    public Order(int i, int i1, double v) {
+    public Order(int id, int userId,Double count) {
+        this.id = id;
+        this.count = count;
+        this.userId = userId;
     }
 
     public Order() {
