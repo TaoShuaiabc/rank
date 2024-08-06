@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    bootstrap-servers: 192.168.219.88:9092,192.168.219.88:9093,192.168.219.88:9094
+    producer:
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+      acks: 1
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+    consumer:
+      group-id: default-group
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      heartbeat-interval: 1000
+      max-poll-records: 500
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      ack-mode: manual_immediate
+
+
