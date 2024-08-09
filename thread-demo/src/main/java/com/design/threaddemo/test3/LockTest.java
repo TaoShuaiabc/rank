@@ -31,7 +31,6 @@ public class LockTest {
         thread1.start();
         thread2.start();
 
-
         thread1.join();
         thread2.join();
 
@@ -41,7 +40,6 @@ public class LockTest {
     public void test01() {
 
         taoShuaiLock.lock();
-
             for (int i = 0; i <= 9999; i++) {
                 k = k + 1;
             }

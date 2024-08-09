@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringBootConsumer {
 
-    @KafkaListener(topics = "test900",groupId = "theShuai")
+    @KafkaListener(topics = "test675",groupId = "theShuai")
     public void theShuaiGroup(ConsumerRecord<String, String> record, Acknowledgment ack) {
 
         String value = record.value();

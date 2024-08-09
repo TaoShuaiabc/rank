@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SpringBootProductController {
 
-    private final static String TOPIC_NAME = "test900";
+    private final static String TOPIC_NAME = "test675";
 
 
     @Resource
