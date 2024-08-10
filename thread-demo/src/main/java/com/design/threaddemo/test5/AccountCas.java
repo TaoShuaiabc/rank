@@ -3,7 +3,7 @@ package com.design.threaddemo.test5;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /*
- * 加锁
+ * cas
  */
 public class AccountCas implements Account{
 
