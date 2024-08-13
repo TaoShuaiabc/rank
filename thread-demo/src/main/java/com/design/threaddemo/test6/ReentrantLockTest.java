@@ -27,8 +27,6 @@ public class ReentrantLockTest {
                 }finally {
                     lock.unlock();
                 }
-
-
             });
         }
 

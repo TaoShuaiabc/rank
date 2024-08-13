@@ -1,1 +1,2 @@
 测试synchronized和ReentrantLock是否是公平锁
+经过测试，这两把锁都是非公平锁
