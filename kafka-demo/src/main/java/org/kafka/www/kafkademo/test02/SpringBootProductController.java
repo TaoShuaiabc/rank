@@ -7,11 +7,10 @@ import jakarta.annotation.Resource;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
-
-
-@Controller
+@RestController
 public class SpringBootProductController {
 
     private final static String TOPIC_NAME = "test675";

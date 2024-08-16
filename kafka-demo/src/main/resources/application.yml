@@ -8,8 +8,8 @@ spring:
       batch-size: 16384
       buffer-memory: 33554432
       acks: 1
-      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
       group-id: default-group
       enable-auto-commit: false

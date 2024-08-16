@@ -23,24 +23,37 @@ spring:
     url: jdbc:mysql://localhost:3306/mall?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
+  #data:
+  #  redis:
+  #    cluster:
+  #      nodes: 192.168.219.88:8001,192.168.219.89:8002,192.168.219.90:8003,192.168.219.88:8004,192.168.219.89:8005,192.168.219.90:8006
+  #    lettuce:
+  #      #这个连接池的配置在每条redis命令处理大概在10毫秒之内的情况下，已经足够支撑1W的QPS了
+  #      #在高并发轻卡下， max-active 和max-idle最好一致，这样可以确保随时都有最大的线程数等待使用，不必再次生成，这是连接池的最佳性能
+  #      pool:
+  #        #池中最大连接数
+  #        max-active: 100
+  #        #池中允许最大空闲线程数
+  #        max-idle: 50
+  #        #池中确保最少空闲连接数
+  #        min-idle: 10
+  #        max-wait: 1000
+  #    timeout: 3000
+  #    database: 0
+  #    password: root
   data:
+    #redis单机配置
     redis:
-      cluster:
-        nodes: 192.168.219.88:8001,192.168.219.89:8002,192.168.219.90:8003,192.168.219.88:8004,192.168.219.89:8005,192.168.219.90:8006
       lettuce:
-        #这个连接池的配置在每条redis命令处理大概在10毫秒之内的情况下，已经足够支撑1W的QPS了
-        #在高并发轻卡下， max-active 和max-idle最好一致，这样可以确保随时都有最大的线程数等待使用，不必再次生成，这是连接池的最佳性能
         pool:
-          #池中最大连接数
           max-active: 100
-          #池中允许最大空闲线程数
           max-idle: 50
-          #池中确保最少空闲连接数
           min-idle: 10
           max-wait: 1000
       timeout: 3000
       database: 0
-      password: root
+      host: 192.168.219.88
+      port: 6379
 
 
 mybatis:
@@ -63,7 +76,7 @@ mybatis:
 #      database: 0
 #      host: 192.168.219.88
 #      port: 6379
-
+#
 
 
 

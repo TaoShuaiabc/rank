@@ -2,6 +2,7 @@ package com.redis.demo.test2.controller;
 
 import com.redis.demo.test2.entity.Product;
 import com.redis.demo.test2.service.ProductService;
+import com.redis.demo.test2.service.SecKillService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/product")
 public class ProductController {
 
+    @Resource
+    private SecKillService secKillService;
 
     @Resource
     private ProductService productService;
@@ -28,5 +31,11 @@ public class ProductController {
     @GetMapping("update")
     private void update(){
         productService.update(new Product());
+    }
+
+
+    @GetMapping("secKill")
+    private String secKill(){
+        return secKillService.secKill();
     }
 }
