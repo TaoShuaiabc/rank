@@ -3,7 +3,7 @@ package com.design.threaddemo.test7;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Test03 {
+public class Test04 {
     //是否分配女朋友
     static boolean flag = false;
     static boolean money = false;
@@ -35,29 +35,18 @@ public class Test03 {
 
         new Thread(() -> {
             synchronized (key) {
-                //如果有女朋友
-                if (flag) {
-                    log.info("jack开始工作");
-                } else {
+                //如果没有女朋友
+                while (!flag){
+                    log.info("jack发现没有女朋友");
                     try {
-                        log.info("jack发现没有女朋友");
                         log.info("jack开始休息");
-                        //如果没有分配女朋友，则jack去休息
                         key.wait();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    //睡眠五秒钟后，判断是否分配
-                    log.info("jack被老板叫醒");
-                    if (flag) {
-                        log.info("发现老板分配了女朋友");
-                        log.info("jack开始工作");
-                    }else {
-                        log.info("jack直接回家");
-                    }
+                    log.info("jack循环等待中");
                 }
-
-
+                log.info("jack被老板叫醒，证明此时跳出了while,也就是分配了女朋友，jack开始工作");
             }
 
 
@@ -66,26 +55,17 @@ public class Test03 {
 
         new Thread(() -> {
             synchronized (key) {
-                //如果有女朋友
-                if (money) {
-                    log.info("rose开始工作");
-                } else {
+                //如果有钱
+                while (!money){
+                    log.info("rose发现没有钱");
                     try {
-                        log.info("rose发现没有钱");
                         log.info("rose开始休息");
-                        //如果没有分配女朋友，则jack去休息
                         key.wait();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    log.info("rose被唤醒了");
-                    if (money) {
-                        log.info("rose发现老板给了钱");
-                        log.info("rose开始工作");
-                    }else {
-                        log.info("rose直接回家");
-                    }
                 }
+                log.info("rose被老板叫醒，证明此时跳出了while,也就是分配了女朋友，jack开始工作");
 
 
             }
@@ -99,8 +79,8 @@ public class Test03 {
         new Thread(()->{
             synchronized (key) {
                 log.info("老板分配了一个女朋友给jack");
-                log.info("老板发了工资给rose");
                 flag = true;
+                log.info("老板发了工资给rose");
                 money = true;
                 //只会随机叫醒一个
                 //key.notify();
