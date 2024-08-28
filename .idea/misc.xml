@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/redis-multi-cache/pom.xml" />
         <option value="$PROJECT_DIR$/thread-demo/pom.xml" />
         <option value="$PROJECT_DIR$/kafka-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-framwork-rank/pom.xml" />
       </list>
     </option>
   </component>

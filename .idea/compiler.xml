@@ -18,6 +18,7 @@
         <module name="springboot-leaf" />
         <module name="redis-demo" />
         <module name="rabbitmq" />
+        <module name="spring-framwork-rank" />
         <module name="algorithm" />
         <module name="design-patterns" />
       </profile>
@@ -31,6 +32,7 @@
       <module name="rabbitmq" options="-parameters" />
       <module name="redis-demo" options="-parameters" />
       <module name="redis-multi-cache" options="-parameters" />
+      <module name="spring-framwork-rank" options="-parameters" />
       <module name="springboot-leaf" options="-parameters" />
       <module name="springboot3" options="-parameters" />
       <module name="springboot3-graalVM" options="-parameters" />

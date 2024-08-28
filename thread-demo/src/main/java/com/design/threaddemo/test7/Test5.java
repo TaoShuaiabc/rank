@@ -12,7 +12,6 @@ public class Test5 {
     public static void main(String[] args) throws InterruptedException {
 
 
-
         new Thread(()->{
             while(true){
                 System.out.println("子线程打印！");
