@@ -65,7 +65,7 @@ public class TaoShuaiApplicationContext {
             }
             //初始化后
             for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
-                beanPostProcessor.postProcessAfterInitialization(object,beanName);
+                object = beanPostProcessor.postProcessAfterInitialization(object, beanName);
             }
 
         } catch (InstantiationException e) {
