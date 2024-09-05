@@ -1,6 +1,6 @@
 package org.spring.rank.www.springframworkrank.test03.taoshuai;
 
-import org.spring.rank.www.springframworkrank.test03.service.UserService;
+import org.spring.rank.www.springframworkrank.test03.service.UserInterface;
 import org.spring.rank.www.springframworkrank.test03.spring.TaoShuaiApplicationContext;
 
 public class Test {
@@ -10,8 +10,8 @@ public class Test {
 
         TaoShuaiApplicationContext context = new TaoShuaiApplicationContext(AppConfig.class);
 
-        UserService userService = (UserService) context.getBean("userService");
+        UserInterface userInterface = (UserInterface) context.getBean("userService");
 
-        userService.test();
+        userInterface.test();
     }
 }

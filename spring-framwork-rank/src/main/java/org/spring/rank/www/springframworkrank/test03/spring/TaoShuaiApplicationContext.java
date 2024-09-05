@@ -5,13 +5,16 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TaoShuaiApplicationContext {
 
     private Map<String,BeanDefinition> beanDefinitionMap = new HashMap<String,BeanDefinition>();
     private Map<String,Object> singletonPool = new HashMap<String,Object>();
+    private List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
 
     //配置类
     private Class configClass;
@@ -46,12 +49,23 @@ public class TaoShuaiApplicationContext {
 
             //给属性赋值，即依赖注入
             for (Field field : aClass.getDeclaredFields()) {
-
                 if (field.isAnnotationPresent(Autowired.class)){
                     field.setAccessible(true);
                     field.set(object,getBean(field.getName()));
                 }
+            }
 
+            //初始化前
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
+                beanPostProcessor.postProcessBeforeInitialization(object,beanName);
+            }
+            //初始化
+            if (object instanceof InitializingBean){
+                ((InitializingBean) object).afterPropertiesSet();
+            }
+            //初始化后
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
+                beanPostProcessor.postProcessAfterInitialization(object,beanName);
             }
 
         } catch (InstantiationException e) {
@@ -120,6 +134,12 @@ public class TaoShuaiApplicationContext {
                         Class<?> aClass = classLoader.loadClass(absolutePath);
 
                         if (aClass.isAnnotationPresent(Component.class)) {
+
+                            //判断当前的类是否实现了BeanPostProcessor接口
+                            if (BeanPostProcessor.class.isAssignableFrom(aClass)) {
+                                BeanPostProcessor instance =(BeanPostProcessor) aClass.getConstructor().newInstance();
+                                beanPostProcessors.add(instance);
+                            }
 
                             BeanDefinition beanDefinition = new BeanDefinition();
                             beanDefinition.setBeanClass(aClass);
