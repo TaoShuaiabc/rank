@@ -1,6 +1,8 @@
 package org.spring.rank.www.springframworkrank.test03.spring;
 
+import java.beans.Introspector;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.HashMap;
@@ -41,6 +43,17 @@ public class TaoShuaiApplicationContext {
         Object object = null;
         try {
             object = aClass.getConstructor().newInstance();
+
+            //给属性赋值，即依赖注入
+            for (Field field : aClass.getDeclaredFields()) {
+
+                if (field.isAnnotationPresent(Autowired.class)){
+                    field.setAccessible(true);
+                    field.set(object,getBean(field.getName()));
+                }
+
+            }
+
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
@@ -66,7 +79,12 @@ public class TaoShuaiApplicationContext {
         //判断是原型还是单例
         if (beanDefinition.getScope().equals("singleton")) {
             //单例
-            return singletonPool.get(beanName);
+            Object singletonBean = singletonPool.get(beanName);
+            if (singletonBean == null){
+                singletonBean = createBean(beanName, beanDefinition);
+                singletonPool.put(beanName,singletonBean);
+            }
+            return singletonBean;
         }else {
             //原型
             return createBean(beanName,beanDefinition);
@@ -116,6 +134,10 @@ public class TaoShuaiApplicationContext {
 
                             }
                             String beanName = aClass.getAnnotation(Component.class).value();
+                            //如果没有在注解中指定类的名字，则由spring自动生成一个
+                            if ("".equals(beanName)){
+                                beanName = Introspector.decapitalize(aClass.getSimpleName());
+                            }
                             beanDefinitionMap.put(beanName, beanDefinition);
                         }
                     }

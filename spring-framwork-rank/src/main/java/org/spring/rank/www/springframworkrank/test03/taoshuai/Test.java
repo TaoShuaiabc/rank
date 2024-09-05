@@ -12,9 +12,6 @@ public class Test {
 
         UserService userService = (UserService) context.getBean("userService");
 
-        System.out.println(context.getBean("userService"));
-        System.out.println(context.getBean("userService"));
-        System.out.println(context.getBean("userService"));
-        //userService.test();
+        userService.test();
     }
 }
